@@ -1,0 +1,10 @@
+## Ignore build results
+bin/
+obj/
+*.user
+*.suo
+
+## Ignore IDE
+.idea/
+*.sln.iml
+.vs/
