@@ -2,8 +2,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="AvaloniaMoviesApp.MainWindow"
-        Title="AvaloniaMoviesApp">
-    Welcome to Avalonia!
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="AvaloniaMoviesApp.Views.MainWindow"
+        Title="Библиотека фильмов"
+        Width="900" Height="600"
+        MinWidth="700" MinHeight="500">
+
+    <DockPanel>
+        <!-- Верхняя панель с кнопками -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" Spacing="10">
+            <Button Name="AddButton" Content="➕ Добавить фильм" HorizontalAlignment="Left" MinWidth="120"/>
+            <Button Name="EditButton" Content="✏️ Редактировать" HorizontalAlignment="Left" MinWidth="120"/>
+            <Button Name="DeleteButton" Content="🗑️ Удалить" HorizontalAlignment="Left" MinWidth="120"/>
+            <Button Name="RefreshButton" Content="🔄 Обновить" HorizontalAlignment="Left" MinWidth="100"/>
+        </StackPanel>
+
+        <!-- Список фильмов -->
+        <DataGrid Name="MoviesGrid" 
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  GridLinesVisibility="All"
+                  HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="200"/>
+                <DataGridTextColumn Header="Режиссёр" Binding="{Binding Director}" Width="150"/>
+                <DataGridTextColumn Header="Год" Binding="{Binding Year}" Width="80"/>
+                <DataGridTextColumn Header="Жанр" Binding="{Binding Genre}" Width="120"/>
+                <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 </Window>
