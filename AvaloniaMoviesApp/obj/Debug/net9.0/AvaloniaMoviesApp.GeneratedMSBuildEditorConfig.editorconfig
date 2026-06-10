@@ -34,5 +34,8 @@ build_property.EnableCodeStyleSeverity =
 [/Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/MainWindow.axaml]
+[/Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/Views/MovieDialogWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

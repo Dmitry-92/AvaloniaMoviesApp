@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AvaloniaMoviesApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c4b471160916979a9524f56d102048f27c8349a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49280d6409b7c1ad8c85486f34bca4a2ee9aca78")]
 [assembly: System.Reflection.AssemblyProductAttribute("AvaloniaMoviesApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AvaloniaMoviesApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
