@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaMoviesApp.Views.MovieDialogWindow"
+        Title="Добавить/Редактировать фильм"
+        Width="450" Height="450"
+        MinWidth="400" MinHeight="400"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="15">
+        <TextBlock Text="Название:" FontWeight="Bold"/>
+        <TextBox Name="TitleBox"/>
+        
+        <TextBlock Text="Режиссёр:" FontWeight="Bold"/>
+        <TextBox Name="DirectorBox"/>
+        
+        <TextBlock Text="Год:" FontWeight="Bold"/>
+        <NumericUpDown Name="YearBox" Minimum="1888" Maximum="2026" Value="2024"/>
+        
+        <TextBlock Text="Жанр:" FontWeight="Bold"/>
+        <TextBox Name="GenreBox"/>
+        
+        <TextBlock Text="Рейтинг (0-10):" FontWeight="Bold"/>
+        <Slider Name="RatingSlider" Minimum="0" Maximum="10" SmallChange="0.5" LargeChange="1" Value="7"/>
+        <TextBlock Name="RatingValue"/>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0,20,0,0">
+            <Button Name="SaveButton" Content="💾 Сохранить" MinWidth="100"/>
+            <Button Name="CancelButton" Content="❌ Отмена" MinWidth="100"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
