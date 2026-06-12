@@ -207,3 +207,4 @@
 /Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/bin/Debug/net9.0/runtimes/win-x64/native/e_sqlite3.dll
 /Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/bin/Debug/net9.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/obj/Debug/net9.0/AvaloniaMoviesApp.sourcelink.json
+/Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/bin/Debug/net9.0/Avalonia.Controls.DataGrid.dll

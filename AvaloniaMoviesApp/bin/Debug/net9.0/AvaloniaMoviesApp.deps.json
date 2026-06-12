@@ -9,6 +9,7 @@
       "AvaloniaMoviesApp/1.0.0": {
         "dependencies": {
           "Avalonia": "12.0.1",
+          "Avalonia.Controls.DataGrid": "11.0.0",
           "Avalonia.Desktop": "12.0.1",
           "Avalonia.Fonts.Inter": "12.0.1",
           "Avalonia.Themes.Fluent": "12.0.1",
@@ -88,6 +89,18 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Avalonia.Controls.DataGrid/11.0.0": {
+        "dependencies": {
+          "Avalonia": "12.0.1",
+          "Avalonia.Remote.Protocol": "12.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Avalonia.Controls.DataGrid.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.0.0"
           }
         }
       },
@@ -1240,6 +1253,13 @@
       "sha512": "sha512-ZL0VLc4s9rvNNFt19Pxm5UNAkmKNylugAwJPX9ulXZ6JWs/l6XZihPWWTyezaoNOVyEPU8YbURtW7XMAtqXH5A==",
       "path": "avalonia.angle.windows.natives/2.1.25547.20250602",
       "hashPath": "avalonia.angle.windows.natives.2.1.25547.20250602.nupkg.sha512"
+    },
+    "Avalonia.Controls.DataGrid/11.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bUEsP11CPoI0BtMW9c0MP9zqTHePSGpYIYM7dndD9+bUEHZfhD7Af8Uw/+GeBbmRu1tm4xLGefcq0O9zmEKrqA==",
+      "path": "avalonia.controls.datagrid/11.0.0",
+      "hashPath": "avalonia.controls.datagrid.11.0.0.nupkg.sha512"
     },
     "Avalonia.Desktop/12.0.1": {
       "type": "package",

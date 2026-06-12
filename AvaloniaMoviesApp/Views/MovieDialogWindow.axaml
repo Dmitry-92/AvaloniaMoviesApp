@@ -1,6 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="AvaloniaMoviesApp.Views.MovieDialogWindow"
+        x:ClassModifier="public"
         Title="Добавить/Редактировать фильм"
         Width="450" Height="450"
         MinWidth="400" MinHeight="400"
