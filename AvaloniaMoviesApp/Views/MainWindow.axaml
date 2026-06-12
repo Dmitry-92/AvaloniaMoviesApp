@@ -17,22 +17,22 @@
             <Button Name="RefreshButton" Content="🔄 Обновить" HorizontalAlignment="Left" MinWidth="100"/>
         </StackPanel>
 
-        <!-- Список фильмов -->
-        <DataGrid Name="MoviesGrid" 
-                  AutoGenerateColumns="False"
-                  Margin="10"
-                  GridLinesVisibility="All"
-                  HorizontalScrollBarVisibility="Auto"
-                  VerticalScrollBarVisibility="Auto">
-            
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="200"/>
-                <DataGridTextColumn Header="Режиссёр" Binding="{Binding Director}" Width="150"/>
-                <DataGridTextColumn Header="Год" Binding="{Binding Year}" Width="80"/>
-                <DataGridTextColumn Header="Жанр" Binding="{Binding Genre}" Width="120"/>
-                <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating}" Width="80"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <!-- Список фильмов в виде ListBox -->
+        <ListBox Name="MoviesListBox" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="0,0,0,1" Padding="10" Margin="0,2">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <TextBlock Text="{Binding Id}" Width="50" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Title}" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="10">
+                                <TextBlock Text="{Binding Year}" Width="60"/>
+                                <TextBlock Text="{Binding Rating}" Width="60"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </DockPanel>
 </Window>

@@ -19,7 +19,7 @@ public partial class MainWindow : Window
         _repository = new MovieRepository();
         _movies = new ObservableCollection<Movie>();
         
-        MoviesGrid.ItemsSource = _movies;
+        MoviesListBox.ItemsSource = _movies;
         
         LoadMovies();
         
@@ -41,7 +41,6 @@ public partial class MainWindow : Window
     
     private async void OnAddButtonClick(object? sender, RoutedEventArgs e)
     {
-        // Пока без MessageBox
         var dialog = new MovieDialogWindow();
         dialog.Title = "Добавление фильма";
         var result = await dialog.ShowDialog<Movie?>(this);
@@ -55,7 +54,7 @@ public partial class MainWindow : Window
     
     private async void OnEditButtonClick(object? sender, RoutedEventArgs e)
     {
-        var selectedMovie = MoviesGrid.SelectedItem as Movie;
+        var selectedMovie = MoviesListBox.SelectedItem as Movie;
         if (selectedMovie == null)
         {
             return;
@@ -74,7 +73,7 @@ public partial class MainWindow : Window
     
     private async void OnDeleteButtonClick(object? sender, RoutedEventArgs e)
     {
-        var selectedMovie = MoviesGrid.SelectedItem as Movie;
+        var selectedMovie = MoviesListBox.SelectedItem as Movie;
         if (selectedMovie == null)
         {
             return;
