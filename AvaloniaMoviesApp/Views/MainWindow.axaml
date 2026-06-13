@@ -18,22 +18,37 @@
             <Button Name="RefreshButton" Content="🔄 Обновить" HorizontalAlignment="Left" MinWidth="100"/>
         </StackPanel>
 
-        <!-- Список фильмов в виде ListBox -->
-        <ListBox Name="MoviesListBox" Margin="10">
-            <ListBox.ItemTemplate>
-                <DataTemplate DataType="models:Movie">
-                    <Border BorderBrush="Gray" BorderThickness="0,0,0,1" Padding="10" Margin="0,2">
-                        <Grid ColumnDefinitions="Auto,*,Auto">
-                            <TextBlock Text="{Binding Id}" Width="50" VerticalAlignment="Center"/>
-                            <TextBlock Text="{Binding Title}" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"/>
-                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="10">
-                                <TextBlock Text="{Binding Year}" Width="60"/>
-                                <TextBlock Text="{Binding Rating}" Width="60"/>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <!-- Список фильмов с шапкой -->
+        <StackPanel Margin="10">
+            <!-- Шапка таблицы -->
+            <Border Background="LightGray" Padding="10" Margin="0,0,0,2">
+                <Grid ColumnDefinitions="50,*,150,80,120,80">
+                    <TextBlock Text="ID" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Text="Название" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Text="Режиссёр" Grid.Column="2" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Text="Год" Grid.Column="3" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Text="Жанр" Grid.Column="4" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Text="Рейтинг" Grid.Column="5" FontWeight="Bold" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            
+            <!-- Список фильмов -->
+            <ListBox Name="MoviesListBox" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="models:Movie">
+                        <Border BorderBrush="LightGray" BorderThickness="0,0,0,1" Padding="10" Margin="0,2">
+                            <Grid ColumnDefinitions="50,*,150,80,120,80">
+                                <TextBlock Text="{Binding Id}" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Title}" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Director}" Grid.Column="2" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Year}" Grid.Column="3" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Genre}" Grid.Column="4" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Rating, StringFormat='{}{0:F1}'}" Grid.Column="5" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </DockPanel>
 </Window>
