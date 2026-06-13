@@ -21,8 +21,11 @@
         <TextBox Name="GenreBox"/>
         
         <TextBlock Text="Рейтинг (0-10):" FontWeight="Bold"/>
-        <Slider Name="RatingSlider" Minimum="0" Maximum="10" SmallChange="0.5" LargeChange="1" Value="7"/>
-        <TextBlock Name="RatingValue"/>
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Slider Name="RatingSlider" Minimum="0" Maximum="10" SmallChange="0.5" LargeChange="1" Value="7" Width="200"/>
+            <TextBox Name="RatingTextBox" Text="7" Width="50" TextAlignment="Center"/>
+        </StackPanel>
+        <TextBlock Name="RatingValue" Margin="0,5,0,0"/>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0,20,0,0">
             <Button Name="SaveButton" Content="💾 Сохранить" MinWidth="100"/>
