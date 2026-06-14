@@ -21,7 +21,8 @@ public partial class MainWindow : Window
         
         MoviesListBox.ItemsSource = _movies;
         
-        LoadMovies();
+        //Асинхронная загрузка
+        _ = LoadMoviesAsync();
         
         AddButton.Click += OnAddButtonClick;
         EditButton.Click += OnEditButtonClick;
@@ -29,9 +30,9 @@ public partial class MainWindow : Window
         RefreshButton.Click += OnRefreshButtonClick;
     }
     
-    private void LoadMovies()
+    private async Task LoadMoviesAsync()
     {
-        var movies = _repository.GetAll();
+        var movies = await _repository.GetAllsync();
         _movies.Clear();
         foreach (var movie in movies)
         {
@@ -47,8 +48,8 @@ public partial class MainWindow : Window
         
         if (result != null)
         {
-            _repository.Add(result);
-            LoadMovies();
+            await _repository.AddSync(result);
+            await LoadMoviesAsync();
         }
     }
     
@@ -66,8 +67,8 @@ public partial class MainWindow : Window
         
         if (result != null)
         {
-            _repository.Update(result);
-            LoadMovies();
+            await _repository.UpdateAsync(result);
+            await LoadMoviesAsync();
         }
     }
     
@@ -79,12 +80,12 @@ public partial class MainWindow : Window
             return;
         }
         
-        _repository.Delete(selectedMovie.Id);
-        LoadMovies();
+        await _repository.DeleteAsync(selectedMovie.Id);
+        await LoadMoviesAsync();
     }
     
-    private void OnRefreshButtonClick(object? sender, RoutedEventArgs e)
+    private async void OnRefreshButtonClick(object? sender, RoutedEventArgs e)
     {
-        LoadMovies();
+        await LoadMoviesAsync();
     }
 }
