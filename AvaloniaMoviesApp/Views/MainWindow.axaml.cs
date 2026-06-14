@@ -32,7 +32,7 @@ public partial class MainWindow : Window
     
     private async Task LoadMoviesAsync()
     {
-        var movies = await _repository.GetAllsync();
+        var movies = await _repository.GetAllAsync();
         _movies.Clear();
         foreach (var movie in movies)
         {
@@ -48,7 +48,7 @@ public partial class MainWindow : Window
         
         if (result != null)
         {
-            await _repository.AddSync(result);
+            await _repository.AddAsync(result);
             await LoadMoviesAsync();
         }
     }
