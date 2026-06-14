@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace AvaloniaMoviesApp.Models;
 
@@ -12,42 +13,41 @@ public class MovieRepository
         _context = new AppDbContext();
         _context.Database.EnsureCreated();
     }
-    
-    // Получить все фильмы
 
-    public List<Movie> GetAll()
+    // Получить все фильмы (асинхронно)
+    public async Task<List<Movie>> GetAllAsync()
     {
-        return _context.Movies.ToList();
+        return await _context.Movies.ToListAsync();
     }
-    
-    // Добавить фильм
-    public void Add(Movie movie)
+
+    // Добавить фильм (асинхронно)
+    public async Task AddAsync(Movie movie)
     {
-        _context.Movies.Add(movie);
-        _context.SaveChanges();
+        await _context.Movies.AddAsync(movie);
+        await _context.SaveChangesAsync();
     }
-    
-    // Обновить фильм
-    public void Update(Movie movie)
+
+    // Обновить фильм (асинхронно)
+    public async Task UpdateAsync(Movie movie)
     {
         _context.Movies.Update(movie);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
-    
-    // Удалить фильм
-    public void Delete(int id)
+
+    // Удалить фильм (асинхронно)
+    public async Task DeleteAsync(int id)
     {
-        var movie = _context.Movies.Find(id);
+        var movie = await _context.Movies.FindAsync(id);
         if (movie != null)
         {
             _context.Movies.Remove(movie);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
-    // Получить фильм по ID
-    public Movie? GetById(int id)
+
+    // Получить фильм по ID (асинхронно)
+    public async Task<Movie?> GetByIdAsync(int id)
     {
-        return _context.Movies.Find(id);
+        return await _context.Movies.FindAsync(id);
     }
 }
-
