@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,5 +50,60 @@ public class MovieRepository
     public async Task<Movie?> GetByIdAsync(int id)
     {
         return await _context.Movies.FindAsync(id);
+    }
+    
+    // ========== РАБОТА С ПОЛЬЗОВАТЕЛЯМИ ==========
+    public async Task<User?> GetUserByUsernameAsync(string username)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+    }
+    
+    public async Task<User> CreateUserAsync(string username, string email)
+    {
+        var user = new User { Username = username, Email = email };
+        await _context.Users.AddAsync(user);
+        await _context.SaveChangesAsync();
+        return user;
+    }
+    
+    // ========== РАБОТА С ОТЗЫВАМИ ==========
+
+    public async Task<List<Review>> GetReviewsForMovieAsync(int movieId)
+    {
+        return await _context.Reviews
+            .Include(r => r.User)
+            .AsQueryable()
+            .Where(r => r.MovieId == movieId)
+            .OrderByDescending(r => r.CreatedAt)
+            .ToListAsync();
+    }
+    
+    public async Task AddReviewAsync(Review review)
+    {
+        await _context.Reviews.AddAsync(review);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateReviewAsync(Review review)
+    {
+        _context.Reviews.Update(review);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteReviewAsync(int reviewId)
+    {
+        var review = await _context.Reviews.FindAsync(reviewId);
+        if (review != null)
+        {
+            _context.Reviews.Remove(review);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+    public async Task<Review?> GetReviewByIdAsync(int reviewId)
+    {
+        return await _context.Reviews
+            .Include(r => r.User)
+            .FirstOrDefaultAsync(r => r.Id == reviewId);
     }
 }
