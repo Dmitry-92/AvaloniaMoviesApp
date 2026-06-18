@@ -9,5 +9,5 @@ public class User
     public string Email { get; set; } = string.Empty;
     
     //Навигационное свойство: отзывы пользователя
-    //public List<Review> Reviews { get; set; } = new();
+    public List<Review> Reviews { get; set; } = new();
 }
