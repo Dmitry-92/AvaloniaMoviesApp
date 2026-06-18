@@ -16,4 +16,4 @@ public class Review
     // Навигационные свойства
     public Movie? Movie { get; set; }
     public User? User { get; set; }
-}git
+}
