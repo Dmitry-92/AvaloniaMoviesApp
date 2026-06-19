@@ -92,7 +92,6 @@ public partial class MainWindow : Window
         await LoadMoviesAsync();
     }
     
-    MoviesListBox.DoubleTapped += OnMovieDoubleClick;
     
     private async void OnMovieDoubleClick(object? sender, Avalonia.Input.TappedEventArgs e)
     {
