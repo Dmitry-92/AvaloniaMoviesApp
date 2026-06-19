@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaMoviesApp.Views.ReviewsWindow"
+        x:ClassModifier="public"
+        Title="Отзывы к фильму"
+        Width="700" Height="500"
+        WindowStartupLocation="CenterOwner">
+
+    <DockPanel>
+        <!-- Верхняя панель с информацией о фильме -->
+        <Border DockPanel.Dock="Top" Background="LightGray" Padding="15" Margin="0,0,0,5">
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TextBlock Name="MovieTitleText" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Name="MovieYearText" FontSize="14" Foreground="Gray"/>
+                <TextBlock Name="MovieDirectorText" FontSize="14" Foreground="Gray"/>
+                <TextBlock Name="MovieGenreText" FontSize="14" Foreground="Gray"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Список отзывов -->
+        <ListBox Name="ReviewsListBox" Margin="10" DockPanel.Dock="Top" Height="250">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="models:Review">
+                    <Border BorderBrush="LightGray" BorderThickness="0,0,0,1" Padding="10" Margin="0,2">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="15">
+                                <TextBlock Text="{Binding User.Username}" FontWeight="Bold" Foreground="DodgerBlue"/>
+                                <TextBlock Text="{Binding CreatedAt}" Foreground="Gray" FontSize="11"/>
+                                <TextBlock Text="{Binding Rating}" Foreground="Gold" FontWeight="Bold"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Comment}" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Панель добавления отзыва -->
+        <Border DockPanel.Dock="Bottom" Background="#F5F5F5" Padding="15" Margin="0,5,0,0">
+            <StackPanel Spacing="10">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <TextBlock Text="Оценка (1-5):" VerticalAlignment="Center"/>
+                    <NumericUpDown Name="RatingBox" Minimum="1" Maximum="5" Value="5" Width="60"/>
+                    <TextBlock Text="Комментарий:" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                    <TextBox Name="CommentBox" Width="300" Watermark="Введите комментарий..."/>
+                    <Button Name="AddReviewButton" Content="➕ Добавить отзыв" Background="DodgerBlue"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <Button Name="EditReviewButton" Content="✏️ Редактировать" IsVisible="False"/>
+                    <Button Name="DeleteReviewButton" Content="🗑️ Удалить" IsVisible="False"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</Window>
