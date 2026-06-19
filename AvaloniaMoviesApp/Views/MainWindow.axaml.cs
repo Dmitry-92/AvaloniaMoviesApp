@@ -12,22 +12,25 @@ public partial class MainWindow : Window
     private readonly MovieRepository _repository;
     private ObservableCollection<Movie> _movies;
     
-    public MainWindow()
+    private readonly User _currentUser;
+
+    public MainWindow(User currentUser)
     {
         InitializeComponent();
-        
+        _currentUser = currentUser;
+    
         _repository = new MovieRepository();
         _movies = new ObservableCollection<Movie>();
-        
+    
         MoviesListBox.ItemsSource = _movies;
-        
-        //Асинхронная загрузка
+    
         _ = LoadMoviesAsync();
-        
+    
         AddButton.Click += OnAddButtonClick;
         EditButton.Click += OnEditButtonClick;
         DeleteButton.Click += OnDeleteButtonClick;
         RefreshButton.Click += OnRefreshButtonClick;
+        MoviesListBox.DoubleTapped += OnMovieDoubleClick;
     }
     
     private async Task LoadMoviesAsync()
@@ -88,4 +91,16 @@ public partial class MainWindow : Window
     {
         await LoadMoviesAsync();
     }
+    
+    MoviesListBox.DoubleTapped += OnMovieDoubleClick;
+    
+    private async void OnMovieDoubleClick(object? sender, Avalonia.Input.TappedEventArgs e)
+    {
+        var selectedMovie = MoviesListBox.SelectedItem as Movie;
+        if (selectedMovie == null) return;
+    
+        var reviewsWindow = new ReviewsWindow(selectedMovie, _currentUser);
+        await reviewsWindow.ShowDialog(this);
+    }
+    
 }
