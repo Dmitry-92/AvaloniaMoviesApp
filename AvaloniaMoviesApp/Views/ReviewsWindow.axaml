@@ -1,5 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="clr-namespace:AvaloniaMoviesApp.Models"
         x:Class="AvaloniaMoviesApp.Views.ReviewsWindow"
         x:ClassModifier="public"
         Title="Отзывы к фильму"

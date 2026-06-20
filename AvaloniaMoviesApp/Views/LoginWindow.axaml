@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaMoviesApp.Views.LoginWindow"
+        x:ClassModifier="public"
+        Title="Вход в систему"
+        Width="350" Height="250"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False">
+
+    <StackPanel Margin="20" Spacing="15">
+        <TextBlock Text="👤 Имя пользователя:" FontWeight="Bold"/>
+        <TextBox Name="UsernameBox" Watermark="Введите имя"/>
+        
+        <TextBlock Text="📧 Email:" FontWeight="Bold"/>
+        <TextBox Name="EmailBox" Watermark="Введите email (необязательно)"/>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0,20,0,0">
+            <Button Name="LoginButton" Content="Войти / Зарегистрироваться" MinWidth="200" Background="DodgerBlue"/>
+        </StackPanel>
+        
+        <TextBlock Name="StatusText" Text="" Foreground="Red" HorizontalAlignment="Center"/>
+    </StackPanel>
+</Window>
