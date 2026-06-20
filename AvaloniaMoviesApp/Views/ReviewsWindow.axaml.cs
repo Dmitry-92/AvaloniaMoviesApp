@@ -96,16 +96,16 @@ public partial class ReviewsWindow : Window
     
     private async void OnEditReviewClick(object? sender, RoutedEventArgs e)
     {
-        //if (_selectedReview == null) return;
+        if (_selectedReview == null) return;
         
-        //var dialog = new ReviewEditDialog(_selectedReview);
-        //var result = await dialog.ShowDialog<Review?>(this);
+        var dialog = new ReviewEditDialog(_selectedReview);
+        var result = await dialog.ShowDialog<Review?>(this);
         
-        //if (result != null)
-        //{
-          //  await _repository.UpdateReviewAsync(result);
-           // await LoadReviewsAsync();
-        //}
+        if (result != null)
+        {
+            await _repository.UpdateReviewAsync(result);
+            await LoadReviewsAsync();
+        }
     }
     
     private async void OnDeleteReviewClick(object? sender, RoutedEventArgs e)
