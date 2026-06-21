@@ -8,6 +8,8 @@ public class User
     public string Username { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     
+    public string PasswordHash { get; set; } = string.Empty; // ← новое поле (храним хеш)
+    
     //Навигационное свойство: отзывы пользователя
     public List<Review> Reviews { get; set; } = new();
 }
