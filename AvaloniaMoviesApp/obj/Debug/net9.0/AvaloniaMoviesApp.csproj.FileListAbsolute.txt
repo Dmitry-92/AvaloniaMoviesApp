@@ -208,3 +208,4 @@
 /Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/obj/Debug/net9.0/AvaloniaMoviesApp.pdb
 /Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/obj/Debug/net9.0/AvaloniaMoviesApp.genruntimeconfig.cache
 /Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/obj/Debug/net9.0/ref/AvaloniaMoviesApp.dll
+/Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/bin/Debug/net9.0/BCrypt-Net-Next.dll

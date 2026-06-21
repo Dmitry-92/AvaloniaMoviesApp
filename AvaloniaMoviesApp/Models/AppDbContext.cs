@@ -19,7 +19,9 @@ public class AppDbContext : DbContext
         
         var directory = Path.GetDirectoryName(_databasePath);
         if (!Directory.Exists(directory))
+        {
             Directory.CreateDirectory(directory!);
+        }
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

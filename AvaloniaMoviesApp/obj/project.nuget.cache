@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tXrkikVpJ54=",
+  "dgSpecHash": "/UVpw3Fs93s=",
   "success": true,
   "projectFilePath": "/Users/dmitriy/Projects/AvaloniaMoviesApp/AvaloniaMoviesApp/AvaloniaMoviesApp.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "/Users/dmitriy/.nuget/packages/avalonia.win32/12.0.1/avalonia.win32.12.0.1.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/avalonia.x11/12.0.1/avalonia.x11.12.0.1.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/avaloniaui.diagnosticssupport/2.2.1/avaloniaui.diagnosticssupport.2.2.1.nupkg.sha512",
+    "/Users/dmitriy/.nuget/packages/bcrypt.net-next/4.2.0/bcrypt.net-next.4.2.0.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/harfbuzzsharp/8.3.1.3/harfbuzzsharp.8.3.1.3.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/harfbuzzsharp.nativeassets.linux/8.3.1.3/harfbuzzsharp.nativeassets.linux.8.3.1.3.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/harfbuzzsharp.nativeassets.macos/8.3.1.3/harfbuzzsharp.nativeassets.macos.8.3.1.3.nupkg.sha512",
@@ -81,9 +82,9 @@
     "/Users/dmitriy/.nuget/packages/system.text.json/9.0.8/system.text.json.9.0.8.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/tmds.dbus.protocol/0.92.0/tmds.dbus.protocol.0.92.0.nupkg.sha512",
+    "/Users/dmitriy/.nuget/packages/microsoft.netcore.app.ref/9.0.11/microsoft.netcore.app.ref.9.0.11.nupkg.sha512",
     "/Users/dmitriy/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.11/microsoft.aspnetcore.app.ref.9.0.11.nupkg.sha512",
-    "/Users/dmitriy/.nuget/packages/microsoft.netcore.app.host.osx-x64/9.0.11/microsoft.netcore.app.host.osx-x64.9.0.11.nupkg.sha512",
-    "/Users/dmitriy/.nuget/packages/microsoft.netcore.app.ref/9.0.11/microsoft.netcore.app.ref.9.0.11.nupkg.sha512"
+    "/Users/dmitriy/.nuget/packages/microsoft.netcore.app.host.osx-x64/9.0.11/microsoft.netcore.app.host.osx-x64.9.0.11.nupkg.sha512"
   ],
   "logs": []
 }

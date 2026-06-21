@@ -8,6 +8,8 @@ namespace AvaloniaMoviesApp.Views;
 public partial class MovieDialogWindow : Window
 {
     private Movie _movie;
+    private const int minRaiting = 0;
+    
     
     public MovieDialogWindow(Movie? movie = null)
     {
