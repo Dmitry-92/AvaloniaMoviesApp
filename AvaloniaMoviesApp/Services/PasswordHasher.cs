@@ -1,3 +1,5 @@
+using BCrypt.Net;
+
 namespace AvaloniaMoviesApp.Services;
 
 public static class PasswordHasher
