@@ -1,7 +1,8 @@
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using AvaloniaMoviesApp.Models;
-using System.Threading.Tasks;
+using AvaloniaMoviesApp.Services;
 
 namespace AvaloniaMoviesApp.Views;
 
@@ -22,29 +23,69 @@ public partial class LoginWindow : Window
     {
         var username = UsernameBox.Text?.Trim();
         var email = EmailBox.Text?.Trim();
+        var password = PasswordBox.Text;
+        var confirmPassword = ConfirmPasswordBox.Text;
         
+        // Проверка обязательных полей
         if (string.IsNullOrWhiteSpace(username))
         {
             StatusText.Text = "⚠️ Введите имя пользователя";
             return;
         }
         
-        // Ищем пользователя
-        var user = await _repository.GetUserByUsernameAsync(username);
-        
-        if (user == null)
+        if (string.IsNullOrWhiteSpace(password))
         {
-            // Создаём нового
-            user = await _repository.CreateUserAsync(username, email ?? $"{username}@example.com");
-            StatusText.Text = "✅ Новый пользователь создан!";
+            StatusText.Text = "⚠️ Введите пароль";
+            return;
+        }
+        
+        // Ищем пользователя в БД
+        var existingUser = await _repository.GetUserByUsernameAsync(username);
+        
+        if (existingUser != null)
+        {
+            // ===== ВХОД СУЩЕСТВУЮЩЕГО ПОЛЬЗОВАТЕЛЯ =====
+            if (PasswordHasher.VerifyPassword(password, existingUser.PasswordHash))
+            {
+                CurrentUser = existingUser;
+                StatusText.Text = $"✅ Добро пожаловать, {existingUser.Username}!";
+                await Task.Delay(300);
+                Close(existingUser);
+            }
+            else
+            {
+                StatusText.Text = "❌ Неверный пароль!";
+            }
         }
         else
         {
-            StatusText.Text = $"✅ Добро пожаловать, {user.Username}!";
+            // ===== РЕГИСТРАЦИЯ НОВОГО ПОЛЬЗОВАТЕЛЯ =====
+            if (password != confirmPassword)
+            {
+                StatusText.Text = "❌ Пароли не совпадают!";
+                return;
+            }
+            
+            if (password.Length < 4)
+            {
+                StatusText.Text = "❌ Пароль должен содержать минимум 4 символа";
+                return;
+            }
+            
+            // Хешируем пароль и создаём пользователя
+            var passwordHash = PasswordHasher.HashPassword(password);
+            var newUser = new User
+            {
+                Username = username,
+                Email = email ?? $"{username}@example.com",
+                PasswordHash = passwordHash
+            };
+            
+            await _repository.CreateUserAsync(newUser);
+            CurrentUser = newUser;
+            StatusText.Text = $"✅ Новый пользователь {username} создан!";
+            await Task.Delay(300);
+            Close(newUser);
         }
-        
-        CurrentUser = user;
-        await Task.Delay(300); // небольшая задержка для отображения статуса
-        Close(user);
     }
 }
