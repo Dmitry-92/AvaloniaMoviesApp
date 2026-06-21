@@ -30,4 +30,9 @@
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\" />
+      <Folder Include="Repositories\" />
+    </ItemGroup>
 </Project>
