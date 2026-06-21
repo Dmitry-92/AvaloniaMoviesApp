@@ -58,9 +58,8 @@ public class MovieRepository
         return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
     }
     
-    public async Task<User> CreateUserAsync(string username, string email)
+    public async Task<User> CreateUserAsync(User user)
     {
-        var user = new User { Username = username, Email = email };
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
         return user;
